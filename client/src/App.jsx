@@ -40,7 +40,7 @@ const App = () => {
         trigger:"h1 .left",
         scroller:"body",
         toggleActions:"play none restart restart",
-        scrub:true
+        scrub:2
       }
     })
     gsap.from("h1 .right",{
@@ -54,20 +54,20 @@ const App = () => {
         trigger:"h1 .right",
         scroller:"body",
         toggleActions:"play none restart restart",
-        scrub:true
+        scrub:2
       }
     })
 
     gsap.from("nav",{
       opacity:0,
       y:-100,
-      duration:0.4,
-      delay:0.3,
+      duration:0.8,
+      delay:1,
       ease: "power2.out",
       scrollTrigger:{
         trigger:".screen",
         scroller:"body",
-        toggleActions:"play none none none",
+        toggleActions:"play none none reverse",
         markers:true,
         start:"top center"
       }
@@ -81,30 +81,31 @@ const App = () => {
       }
     })
     
-    document.addEventListener("mousemove",(event)=>{
-      gsap.to(cursor.current,{
-        x:event.clientX,
-        y:event.clientY,
-        ease:"bounce.out"
-      })
-    })
+    // document.addEventListener("mousemove",(event)=>{
+    //   gsap.to(cursor.current,{
+    //     x:event.clientX,
+    //     y:event.clientY,
+    //     ease:"bounce.out"
+    //   })
+    // })
 
   })
 
   return (
     <div className='bg-[#141611] text-white w-[100vw] h-[auto] overflow-x-hidden bg-cover bg-center'>
-      <div ref={cursor} className='h-[2em] w-[2em] rounded-3xl bg-white fixed z-30'></div>
+      {/* <div ref={cursor} className='h-[2em] w-[2em] rounded-3xl bg-white fixed z-30'></div> */}
       
-      <nav className='p-[3em] pt-[1.5em] pb-[1.5em] w-[100vw] fixed flex justify-between'>
+      <nav className='p-[3em] pt-[1.5em] pb-[1.5em] w-[100vw] fixed flex justify-between z-40'>
         <h1 className='text-4xl font-bold cursor-pointer'>PoRtFoLiO</h1>
         <div className='h-[2em] z-50' onClick={()=>{
           tl.current.play();
         }}>< AiOutlineMenuFold className='h-[100%] w-[100%]' /></div>
       </nav>
-      <div ref={menu} className='fixed w-[30%] h-[100%] bg-white/30 backdrop-blur-sm top-0 right-0 text-3xl p-[2em] z-10'>
+
+      <div ref={menu} className='fixed w-[30%] h-[100%] bg-white/30 backdrop-blur-sm top-0 right-0 text-3xl p-[2em] z-50'>
         <div ref={closeIcon} className='fixed h-[1em] w-[1em] top-0 right-0 p-[1em] pr-[2em]' onClick={()=>{
           tl.current.reverse();
-        }}><ImCancelCircle /></div>
+        }}><ImCancelCircle/></div>
         <h1 className='mb-[2em] h1'>Linkdin Profile</h1>
         <h1 className='mb-[2em] h1'>Resume</h1>
         <h1 className='mb-[2em] h1'>View Github</h1>
@@ -129,7 +130,7 @@ const App = () => {
       </div>
 
       <div className='w-[100vw] h-[200vh] '>
-        <div className='bg-white h-[20px] w-[20px]'></div>
+        <div className='bg-white h-[20px] w-[20px] screen'></div>
       </div>
     </div>
   )
