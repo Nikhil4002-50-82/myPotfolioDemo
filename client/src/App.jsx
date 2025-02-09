@@ -81,28 +81,28 @@ const App = () => {
       }
     })
   
-    t2.current=gsap.timeline({
-      scrollTrigger:{
-        trigger:".screen",
-        scroller:"body",
-        toggleActions:"play none none reverse",
-        start:"top top",
-        markers:true,
-        pin:true
-      }
-    })
+    // t2.current=gsap.timeline({
+    //   scrollTrigger:{
+    //     trigger:".screen",
+    //     scroller:"body",
+    //     toggleActions:"play none none reverse",
+    //     start:"top top",
+    //     markers:true,
+    //     pin:true
+    //   }
+    // })
 
-    t2.current.from(".about",{
-      y:-100,
-      opacity:0,
-      // duration:0.5,
-      stagger:0.1,
-    })
-    t2.current.from(".name",{
-      y:100,
-      opacity:0,
-      duration:0.5,
-    })
+    // t2.current.from(".about",{
+    //   y:-100,
+    //   opacity:0,
+    //   // duration:0.5,
+    //   stagger:0.1,
+    // })
+    // t2.current.from(".name",{
+    //   y:100,
+    //   opacity:0,
+    //   duration:0.5,
+    // })
     
     // document.addEventListener("mousemove",(event)=>{
     //   gsap.to(cursor.current,{
@@ -111,6 +111,30 @@ const App = () => {
     //     ease:"bounce.out"
     //   })
     // })
+
+    gsap.from(".about",{
+      y:-100,
+      opacity:0,
+      duration:0.5,
+      delay:0.5,
+      scrollTrigger:{
+        trigger:".screen",
+        toggleActions:"play none none reverse",
+        start:"top top"
+      }
+    })
+
+    gsap.from(".name",{
+      x:-100,
+      opacity:0,
+      duration:0.5,
+      delay:1.2,
+      scrollTrigger:{
+        trigger:".screen",
+        toggleActions:"play none none reverse",
+        start:"top top"
+      }
+    })
 
   })
 
