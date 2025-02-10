@@ -117,6 +117,7 @@ const App = () => {
       opacity:0,
       duration:0.5,
       delay:0.5,
+      stagger:0.1,
       scrollTrigger:{
         trigger:".screen",
         toggleActions:"play none none reverse",
@@ -127,11 +128,24 @@ const App = () => {
     gsap.from(".name",{
       x:-100,
       opacity:0,
-      duration:0.5,
-      delay:1.2,
+      duration:1,
+      delay:1.5,
       scrollTrigger:{
         trigger:".screen",
         toggleActions:"play none none reverse",
+        start:"top top"
+      }
+    })
+
+    gsap.from(".paras div p",{
+      y:-200,
+      opacity:0,
+      duration:1,
+      stagger:0.3,
+      scrollTrigger:{
+        trigger:".paras",
+        scroller:"body",
+        toggleActions:"play restart restart none",
         start:"top top"
       }
     })
@@ -175,6 +189,16 @@ const App = () => {
           <span className='right inline-block'>T</span>
         </h1>
       </div>
+
+      <div className='w-[100%] h-[100vh] flex items-center justify-center paras'>
+          <div className='h-[90%] w-[70%] text-lg font-bold p-[2em] [line-height:2em] flex flex-col items-center justify-center'>
+            <p className='mb-[1.5em]'>As a developer, I have the ability to bring ideas to life through code, creating functional and innovative applications. My problem-solving skills help me tackle complex challenges efficiently.</p>
+            <p className='mb-[1.5em]'>I continuously learn and adapt to new technologies, ensuring my skills stay relevant in a fast-paced industry. Writing clean, scalable, and efficient code is a key part of my expertise.</p>
+            <p className='mb-[1.5em]'>Collaboration is essential in my work, whether it's with other developers, designers, or stakeholders. My ability to debug and optimize code enhances the performance of the applications I build.</p>
+            <p className='mb-[1.5em]'>I understand the importance of user experience and strive to create seamless, intuitive interfaces. My passion for coding drives me to build solutions that make a meaningful impact.</p>
+          </div>
+        </div>
+        
 
       <div className='w-[100vw] h-[auto] '>
         <div className='h-[50px] w-[50px] screen relative top-0 left-0'></div>
